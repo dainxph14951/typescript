@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-ReactDOM.render(<App />, document.querySelector('#root'));
+import { BrowserRouter } from 'react-router-dom';
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.querySelector('#root'));
 // const myName: string = "Nguyễn Xuân Đại";
 // const myStatus: boolean = true;
 // const myAge: number = 20;
