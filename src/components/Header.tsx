@@ -9,7 +9,7 @@ const Header = (props: Props) => {
   return (
       
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
+            <div className="container-fluid ">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <Navbar />
                 <Search />

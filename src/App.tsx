@@ -11,6 +11,7 @@ import Banner from './components/Banner'
 import Footer from './components/Footer'
 
 function App() {
+  //<div>
   // const [count, setCount] = useState(0);
   // const [myName, setMyName] = useState("Nguyễn Xuân Đại");
   // const [status, setStatus] = useState(false);
@@ -20,13 +21,14 @@ function App() {
   //   {id: 2, name: "Product B"},
   //   {id: 3, name: "Product C"}
   // ])
+  //</div>
   return (
 
     <div className="container">
 
       <header>
-        <div className=' text-center'>
-        <img src="https://caodang.fpt.edu.vn/wp-content/uploads/SvqIUpD.png" alt="" />
+        <div className='text-center bg-light'>
+        <img src="https://caodang.fpt.edu.vn/wp-content/uploads/logo-3.png" alt="" />
         </div>
     <Header />
       </header>
@@ -45,8 +47,7 @@ function App() {
         <Footer />
       </footer>
     </div>
-    
-    // <div>
+    //<div>
     //   Count : {count}
     //   <hr />
     //   Nmae: {myName}
