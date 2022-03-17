@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import ShowInfo from './components/ShowInfo'
 import { NavLink, Route, Routes } from 'react-router-dom'
@@ -7,6 +6,9 @@ import HomePage from './pages/HomePage'
 import Product from './pages/Product'
 import News from './pages/News'
 import Contact from './pages/Contact'
+import Header from './components/Header'
+import Banner from './components/Banner'
+import Footer from './components/Footer'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -21,14 +23,16 @@ function App() {
   return (
 
     <div className="container">
+
       <header>
-        <ul>
-          <li><NavLink to="/">Trang Chủ</NavLink></li>
-          <li><NavLink to="/product">Sản Phẩm </NavLink></li>
-          <li><NavLink to="/news">Tin Tức</NavLink></li>
-          <li><NavLink to="/contact">Hỗ Trợ</NavLink></li>
-        </ul>
+        <div className=' text-center'>
+        <img src="https://caodang.fpt.edu.vn/wp-content/uploads/SvqIUpD.png" alt="" />
+        </div>
+    <Header />
       </header>
+      <div className=''>
+    <Banner />
+      </div>
       <main>
         <Routes>
           <Route path="/" element={< HomePage />} />
@@ -37,6 +41,9 @@ function App() {
           <Route path="contact" element={< Contact />} />
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
     
     // <div>
