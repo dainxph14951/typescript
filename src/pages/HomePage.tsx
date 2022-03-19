@@ -6,8 +6,8 @@ function HomePage(props : Props ) {
   return (
     <div className="container">
     <h1 className='text-primary'>Tin Tức</h1>
-  <div className="row m-3">
-    <div className="col-sm-4 border p-5 mb-3">
+  <div className="row ">
+    <div className="col-sm-4 border p-5 mb-3 ">
       <div className=' text-center'>
       <img src="https://caodang.fpt.edu.vn/wp-content/uploads/%C3%A1gfdg.jpg" className='img-rounded' alt="Cinque Terre" width="304" height="236" />
       </div>
