@@ -12,17 +12,23 @@ import Footer from './components/Footer'
 import WebLayout from './pages/layouts/WebLayout'
 import AdminLayout from './pages/layouts/AdminLayout'
 import ProductDetail from './pages/ProductDetail'
+import { ProductType } from './types/Product'
+import { list , remove } from './api/products'
+import ProductManager from './pages/ProductManager'
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
     const getProducts = async () => {
-        const response = await fetch('http://localhost:8000/api/products/');
-        const data = await response.json();
-        setProducts(data);
-    }   
+      const { data } = await list();
+      setProducts(data);
+    }
     getProducts();
-}, []);
+  }, []);
+  const removeItem = (id) => {
+    remove(id);
+    setProducts(products.filter(item => item.id !==id));
+  }
   //<div>
   // const [count, setCount] = useState(0);
   // const [myName, setMyName] = useState("Nguyễn Xuân Đại");
@@ -51,21 +57,22 @@ function App() {
         <Routes>
           <Route path='/' element={<WebLayout />} >
             <Route index element={<HomePage />} />
-            <Route path='product' element={<h1>Product Page</h1>}/>
-            <Route path='/product/:id' element={<ProductDetail />} />
-            <Route />
-          </ Route>
+            <Route path='product'>
+              <Route element={<h1>Product Page</h1>} />
+              <Route path='/product/:id' element={<ProductDetail />} />
+            </ Route>
+            </ Route >
+            <Route path='admin' element={<AdminLayout />} >
+              <Route index element={<Navigate to="Dashboart" />} />
+              <Route path='Dashboart' element={<h1>Dashboart Page</h1>} />
+              <Route path='product' element={<ProductManager products={products} onRemove={removeItem}/>} />
+            </ Route>
 
-          <Route path='admin' element={<AdminLayout />} >
-            <Route index element={<Navigate to="Dashboart" />} />
-            <Route path='Dashboart' element={<h1>Dashboart Page</h1>} />
-          </ Route>
-
-     </ Routes>
+        </ Routes>
       </main >
-    <footer>
-      <Footer />
-    </footer>
+      <footer>
+        <Footer />
+      </footer>
     </div >
     //<div>
     //   Count : {count}
